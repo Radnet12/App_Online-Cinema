@@ -5,11 +5,8 @@ module.exports = {
     project: ["tsconfig.json"],
     createDefaultProgram: true,
   },
-  plugins: ["@typescript-eslint/eslint-plugin", "prettier"],
-  extends: [
-    "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended",
-  ],
+  plugins: ["prettier"],
+  extends: ["plugin:prettier/recommended"],
   root: true,
   env: {
     node: true,
@@ -21,7 +18,6 @@ module.exports = {
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/no-unused-vars": "off",
     "prettier/prettier": [
       "error",
       {
