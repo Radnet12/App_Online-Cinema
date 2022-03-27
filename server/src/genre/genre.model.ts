@@ -11,8 +11,8 @@ export class GenreModel extends TimeStamps {
   slug: string;
 
   @prop()
-  description: boolean;
+  description: string;
 
   @prop()
-  icon: [];
+  icon: string;
 }

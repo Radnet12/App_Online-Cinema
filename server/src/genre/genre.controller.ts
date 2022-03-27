@@ -7,6 +7,7 @@ import {
   Get,
   HttpCode,
   Param,
+  Post,
   Put,
   Query,
   UsePipes,
@@ -20,8 +21,8 @@ export class GenreController {
   constructor(private readonly genreService: GenreService) {}
 
   @Get()
-  async getAllGenres() {
-    return this.genreService.getAllGenres();
+  async getAllGenres(@Query("searchTerm") searchTerm?: string) {
+    return this.genreService.getAllGenres(searchTerm);
   }
 
   @Get("/slug/:slug")
@@ -43,13 +44,20 @@ export class GenreController {
     return this.genreService.getGenrebySlug(id);
   }
 
+  @Auth("admin")
+  @HttpCode(200)
+  @Post()
+  async createGenre() {
+    return this.genreService.createGenre();
+  }
+
   @UsePipes(new ValidationPipe())
   @Auth("admin")
   @HttpCode(200)
   @Put("/:id")
   async updateGenre(
     @Param("id", IdValidationPipe) id: string,
-    dto: CreateGenreDto,
+    @Body() dto: CreateGenreDto,
   ) {
     return this.genreService.updateGenre(id, dto);
   }
@@ -57,7 +65,7 @@ export class GenreController {
   @UsePipes(new ValidationPipe())
   @Auth("admin")
   @HttpCode(200)
-  @Put("/:id")
+  @Delete("/:id")
   async deleteGenre(@Param("id", IdValidationPipe) id: string) {
     return this.genreService.deleteGenre(id);
   }

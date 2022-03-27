@@ -82,11 +82,25 @@ export class GenreService {
   }
 
   async updateGenre(_id: string, dto: CreateGenreDto) {
-    return this.genreModel.findByIdAndUpdate(_id, dto, { new: true }).exec();
+    const genre = await this.genreModel
+      .findByIdAndUpdate(_id, dto, { new: true })
+      .exec();
+
+    if (!genre) {
+      throw new NotFoundException("Genre has not been found");
+    }
+
+    return genre;
   }
 
   async deleteGenre(_id: string) {
-    return this.genreModel.findByIdAndDelete(_id).exec();
+    const genre = await this.genreModel.findByIdAndDelete(_id).exec();
+
+    if (!genre) {
+      throw new NotFoundException("Genre has not been found");
+    }
+
+    return genre;
   }
 
   // ADMIN METHODS
