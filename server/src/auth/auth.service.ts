@@ -37,6 +37,8 @@ export class AuthService {
 
     const tokens = await this.issueTokenPair(String(newUser._id));
 
+    await newUser.save();
+
     return {
       user: this.returnUserFields(newUser),
       ...tokens,
