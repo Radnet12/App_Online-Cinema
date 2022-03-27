@@ -20,57 +20,61 @@ import { User } from "./decorators/user.decorator";
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
-  @Get("/profile")
-  @Auth()
-  async getUserProfile(@User("_id") _id: string) {
-    return this.userService.byId(_id);
-  }
-
-  @Put("/profile")
   @UsePipes(new ValidationPipe())
-  @HttpCode(200)
   @Auth()
+  @HttpCode(200)
+  @Put("/profile")
   async updateUserProfile(
     @User("_id") _id: string,
     @Body() dto: UpdateUserDto,
   ) {
-    return this.userService.updateProfile(_id, dto);
+    return this.userService.updateUserProfile(_id, dto);
   }
 
-  @Get("/count")
+  @Auth()
+  @Get("/profile")
+  async getUserProfile(@User("_id") _id: string) {
+    return this.userService.getUserbyId(_id);
+  }
+
+  // ADMIN METHODS
+
   @Auth("admin")
+  @Get("/count")
   async getUsersCount() {
     return this.userService.getUsersCount();
   }
 
-  @Get()
   @Auth("admin")
+  @Get()
   async getAllUsers(@Query("searchTerm") searchTerm?: string) {
     return this.userService.getAllUsers(searchTerm);
   }
 
-  @Get("/:id")
   @Auth("admin")
+  @Get("/:id")
   async getUserById(@Param("id", IdValidationPipe) id: string) {
-    return this.userService.byId(id);
+    return this.userService.getUserbyId(id);
   }
 
-  @Put("/:id")
   @UsePipes(new ValidationPipe())
-  @HttpCode(200)
   @Auth("admin")
+  @HttpCode(200)
+  @Put("/:id")
   async updateUserById(
     @Param("id", IdValidationPipe) id: string,
     @Body() dto: UpdateUserDto,
   ) {
-    return this.userService.updateProfile(id, dto);
+    return this.userService.updateUserProfile(id, dto);
   }
 
-  @Delete("/:id")
   @UsePipes(new ValidationPipe())
-  @HttpCode(200)
   @Auth("admin")
+  @HttpCode(200)
+  @Delete("/:id")
   async deleteUserById(@Param("id", IdValidationPipe) id: string) {
     return this.userService.deleteUser(id);
   }
+
+  // ADMIN METHODS
 }
