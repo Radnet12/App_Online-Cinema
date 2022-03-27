@@ -1,12 +1,15 @@
 import { UserService } from "./user.service";
 import { Controller, Get } from "@nestjs/common";
+import { Auth } from "src/auth/decorators/auth.decorator";
+import { User } from "./decorators/user.decorator";
 
 @Controller("users")
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Get("/profile")
-  async getProfile() {
-    return this.userService.byId();
+  @Auth()
+  async getProfile(@User("_id") _id: string) {
+    return this.userService.byId(_id);
   }
 }
