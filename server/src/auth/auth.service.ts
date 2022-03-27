@@ -1,3 +1,4 @@
+import { RefreshTokenDto } from "./dto/refreshToken.dto";
 import {
   BadRequestException,
   Injectable,
@@ -44,6 +45,27 @@ export class AuthService {
 
   async login(dto: AuthDto) {
     const user = await this.validateUser(dto);
+
+    const tokens = await this.issueTokenPair(String(user._id));
+
+    return {
+      user: this.returnUserFields(user),
+      ...tokens,
+    };
+  }
+
+  async getNewTokens({ refreshToken }: RefreshTokenDto) {
+    if (!refreshToken) {
+      throw new UnauthorizedException("Please sing in!");
+    }
+
+    const payload = await this.jwtService.verifyAsync(refreshToken);
+
+    if (!payload) {
+      throw new UnauthorizedException("Invalid token or expired!");
+    }
+
+    const user = await this.UserModel.findById(payload._id);
 
     const tokens = await this.issueTokenPair(String(user._id));
 
