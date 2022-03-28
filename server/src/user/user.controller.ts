@@ -11,10 +11,10 @@ import {
 import { IdValidationPipe } from "@Pipes/id.validation.pipe";
 import { UserDto } from "@Dto/user.dto";
 
-import { Auth } from "@/auth/decorators/auth.decorator";
+import { Auth } from "@/#common/decorators/auth.decorator";
 
 import { UserService } from "./user.service";
-import { User } from "./decorators/user.decorator";
+import { User } from "../#common/decorators/user.decorator";
 
 @Controller("users")
 export class UserController {

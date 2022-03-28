@@ -12,8 +12,7 @@ import {
 
 import { IdValidationPipe } from "@Pipes/id.validation.pipe";
 import { GenreDto } from "@Dto/genre.dto";
-
-import { Auth } from "@/auth/decorators/auth.decorator";
+import { Auth } from "@Decorators/auth.decorator";
 
 import { GenreService } from "./genre.service";
 

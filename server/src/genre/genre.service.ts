@@ -1,4 +1,8 @@
-import { Injectable, NotFoundException } from "@nestjs/common";
+import {
+  ConflictException,
+  Injectable,
+  NotFoundException,
+} from "@nestjs/common";
 import { InjectModel } from "nestjs-typegoose";
 import { ModelType } from "@typegoose/typegoose/lib/types";
 
@@ -70,6 +74,16 @@ export class GenreService {
   }
 
   async createGenre() {
+    const genres = await this.getAllGenres();
+
+    const emptyGenre = genres.find((genre) => genre.slug === "");
+
+    if (emptyGenre) {
+      throw new ConflictException(
+        `Genre with id: ${emptyGenre._id} is empty. Please fill this genre`,
+      );
+    }
+
     const genreDefaultValues: GenreDto = {
       name: "",
       slug: "",

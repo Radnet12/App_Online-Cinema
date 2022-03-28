@@ -22,7 +22,10 @@
       "@Pipes/*": ["src/#common/pipes/*"],
       "@Config/*": ["src/#common/config/*"],
       "@Dto/*": ["src/#common/dto/*"],
-      "@Models/*": ["src/#common/models/*"]
+      "@Models/*": ["src/#common/models/*"],
+      "@Decorators/*": ["src/#common/decorators/*"],
+      "@Guards/*": ["src/#common/guards/*"],
+      "@Strategies/*": ["src/#common/strategies/*"]
     }
   }
 }

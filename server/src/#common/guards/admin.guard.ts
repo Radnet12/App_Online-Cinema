@@ -4,7 +4,7 @@ import {
   ForbiddenException,
 } from "@nestjs/common";
 
-import { UserModel } from "@/user/user.model";
+import { UserModel } from "@Models/user.model";
 
 export class OnlyAdminGuard implements CanActivate {
   canActivate(context: ExecutionContext): boolean {
