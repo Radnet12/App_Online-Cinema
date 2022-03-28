@@ -1,2 +1,2 @@
 export * from "./auth.type";
-export * from "./file.interface";
+export * from "./fileResponse.interface";

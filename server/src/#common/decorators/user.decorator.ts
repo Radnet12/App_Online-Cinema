@@ -1,6 +1,6 @@
 import { createParamDecorator, ExecutionContext } from "@nestjs/common";
 
-import { UserModel } from "@Models/user.model";
+import { UserModel } from "@models";
 
 type TypeData = keyof UserModel;
 
