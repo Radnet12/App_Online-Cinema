@@ -3,8 +3,8 @@ import { InjectModel } from "nestjs-typegoose";
 import { ModelType } from "@typegoose/typegoose/lib/types";
 import { genSalt, hash } from "bcryptjs";
 
-import { UserModel } from "@Models/user.model";
-import { UserDto } from "@Dto/user.dto";
+import { UserModel } from "@models";
+import { UserDto } from "@dto";
 
 @Injectable()
 export class UserService {

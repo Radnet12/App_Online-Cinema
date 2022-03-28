@@ -8,9 +8,8 @@ import { InjectModel } from "nestjs-typegoose";
 import { ModelType } from "@typegoose/typegoose/lib/types";
 import { hash, compare, genSalt } from "bcryptjs";
 
-import { RefreshTokenDto } from "@Dto/refreshToken.dto";
-import { AuthDto } from "@Dto/auth.dto";
-import { UserModel } from "@Models/user.model";
+import { RefreshTokenDto, AuthDto } from "@dto";
+import { UserModel } from "@models";
 
 @Injectable()
 export class AuthService {

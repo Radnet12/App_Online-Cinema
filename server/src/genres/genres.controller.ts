@@ -10,11 +10,11 @@ import {
   Query,
 } from "@nestjs/common";
 
-import { IdValidationPipe } from "@Pipes/id.validation.pipe";
-import { GenreDto } from "@Dto/genre.dto";
-import { Auth } from "@Decorators/auth.decorator";
+import { IdValidationPipe } from "@pipes";
+import { GenreDto } from "@dto";
+import { Auth } from "@decorators";
 
-import { GenreService } from "./genre.service";
+import { GenreService } from "./genres.service";
 
 @Controller("genres")
 export class GenreController {

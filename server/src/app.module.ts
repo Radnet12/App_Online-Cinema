@@ -2,11 +2,12 @@ import { Module } from "@nestjs/common";
 import { ConfigModule, ConfigService } from "@nestjs/config";
 import { TypegooseModule } from "nestjs-typegoose";
 
-import { getMongoDbConfig } from "@Config/mongo.config";
+import { getMongoDbConfig } from "@configs";
 
 import { AuthModule } from "./auth/auth.module";
-import { UserModule } from "./user/user.module";
-import { GenreModule } from "./genre/genre.module";
+import { UserModule } from "./users/users.module";
+import { GenreModule } from "./genres/genres.module";
+import { FilesModule } from "./files/files.module";
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { GenreModule } from "./genre/genre.module";
     AuthModule,
     UserModule,
     GenreModule,
+    FilesModule,
   ],
   controllers: [],
   providers: [],

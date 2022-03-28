@@ -6,8 +6,8 @@ import {
 import { InjectModel } from "nestjs-typegoose";
 import { ModelType } from "@typegoose/typegoose/lib/types";
 
-import { GenreDto } from "@Dto/genre.dto";
-import { GenreModel } from "@Models/genre.model";
+import { GenreDto } from "@dto";
+import { GenreModel } from "@models";
 
 @Injectable()
 export class GenreService {

@@ -8,13 +8,11 @@ import {
   Query,
 } from "@nestjs/common";
 
-import { IdValidationPipe } from "@Pipes/id.validation.pipe";
-import { UserDto } from "@Dto/user.dto";
+import { IdValidationPipe } from "@pipes";
+import { UserDto } from "@dto";
+import { Auth, User } from "@decorators";
 
-import { Auth } from "@/#common/decorators/auth.decorator";
-
-import { UserService } from "./user.service";
-import { User } from "../#common/decorators/user.decorator";
+import { UserService } from "./users.service";
 
 @Controller("users")
 export class UserController {

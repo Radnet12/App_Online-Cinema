@@ -1,10 +1,10 @@
 import { Module } from "@nestjs/common";
 import { TypegooseModule } from "nestjs-typegoose";
 
-import { UserModel } from "@Models/user.model";
+import { UserModel } from "@models";
 
-import { UserController } from "./user.controller";
-import { UserService } from "./user.service";
+import { UserController } from "./users.controller";
+import { UserService } from "./users.service";
 
 @Module({
   providers: [UserService],

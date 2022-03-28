@@ -1,10 +1,10 @@
 import { Module } from "@nestjs/common";
 import { TypegooseModule } from "nestjs-typegoose";
 
-import { GenreModel } from "@Models/genre.model";
+import { GenreModel } from "@models";
 
-import { GenreController } from "./genre.controller";
-import { GenreService } from "./genre.service";
+import { GenreController } from "./genres.controller";
+import { GenreService } from "./genres.service";
 
 @Module({
   controllers: [GenreController],

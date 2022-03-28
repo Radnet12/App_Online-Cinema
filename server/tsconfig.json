@@ -19,13 +19,30 @@
     "noFallthroughCasesInSwitch": false,
     "paths": {
       "@/*": ["src/*"],
-      "@Pipes/*": ["src/#common/pipes/*"],
-      "@Config/*": ["src/#common/config/*"],
-      "@Dto/*": ["src/#common/dto/*"],
-      "@Models/*": ["src/#common/models/*"],
-      "@Decorators/*": ["src/#common/decorators/*"],
-      "@Guards/*": ["src/#common/guards/*"],
-      "@Strategies/*": ["src/#common/strategies/*"]
+
+      "@configs": ["src/#common/configs/index.ts"],
+      "@configs/*": ["src/#common/configs/*"],
+
+      "@decorators": ["src/#common/decorators/index.ts"],
+      "@decorators/*": ["src/#common/decorators/*"],
+
+      "@dto": ["src/#common/dto/index.ts"],
+      "@dto/*": ["src/#common/dto/*"],
+
+      "@guards": ["src/#common/guards/index.ts"],
+      "@guards/*": ["src/#common/guards/*"],
+
+      "@models": ["src/#common/models/index.ts"],
+      "@models/*": ["src/#common/models/*"],
+
+      "@pipes": ["src/#common/pipes/index.ts"],
+      "@pipes/*": ["src/#common/pipes/*"],
+
+      "@strategies": ["src/#common/strategies/index.ts"],
+      "@strategies/*": ["src/#common/strategies/*"],
+
+      "@types": ["src/#common/types/index.ts"],
+      "@types/*": ["src/#common/types/*"]
     }
   }
 }
