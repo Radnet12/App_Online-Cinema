@@ -51,7 +51,6 @@ export class GenreController {
     return this.genreService.createGenre();
   }
 
-  @UsePipes(new ValidationPipe())
   @Auth("admin")
   @HttpCode(200)
   @Put("/:id")
@@ -62,7 +61,6 @@ export class GenreController {
     return this.genreService.updateGenre(id, dto);
   }
 
-  @UsePipes(new ValidationPipe())
   @Auth("admin")
   @HttpCode(200)
   @Delete("/:id")

@@ -20,7 +20,6 @@ import { User } from "./decorators/user.decorator";
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
-  @UsePipes(new ValidationPipe())
   @Auth()
   @HttpCode(200)
   @Put("/profile")
@@ -57,7 +56,6 @@ export class UserController {
     return this.userService.getUserbyId(id);
   }
 
-  @UsePipes(new ValidationPipe())
   @Auth("admin")
   @HttpCode(200)
   @Put("/:id")
@@ -68,7 +66,6 @@ export class UserController {
     return this.userService.updateUserProfile(id, dto);
   }
 
-  @UsePipes(new ValidationPipe())
   @Auth("admin")
   @HttpCode(200)
   @Delete("/:id")
