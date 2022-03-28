@@ -16,18 +16,18 @@ import { UserService } from "./users.service";
 
 @Controller("users")
 export class UserController {
-  constructor(private readonly userService: UserService) {}
+  constructor(private readonly usersService: UserService) {}
 
   @Auth()
   @Put("/profile")
   async updateUserProfile(@User("_id") _id: string, @Body() dto: UserDto) {
-    return this.userService.updateUserProfile(_id, dto);
+    return this.usersService.updateUserProfile(_id, dto);
   }
 
   @Auth()
   @Get("/profile")
   async getUserProfile(@User("_id") _id: string) {
-    return this.userService.getUserbyId(_id);
+    return this.usersService.getUserById(_id);
   }
 
   // ADMIN METHODS
@@ -35,19 +35,19 @@ export class UserController {
   @Auth("admin")
   @Get("/count")
   async getUsersCount() {
-    return this.userService.getUsersCount();
+    return this.usersService.getUsersCount();
   }
 
   @Auth("admin")
   @Get()
   async getAllUsers(@Query("searchTerm") searchTerm?: string) {
-    return this.userService.getAllUsers(searchTerm);
+    return this.usersService.getAllUsers(searchTerm);
   }
 
   @Auth("admin")
   @Get("/:id")
   async getUserById(@Param("id", IdValidationPipe) id: string) {
-    return this.userService.getUserbyId(id);
+    return this.usersService.getUserById(id);
   }
 
   @Auth("admin")
@@ -56,13 +56,13 @@ export class UserController {
     @Param("id", IdValidationPipe) id: string,
     @Body() dto: UserDto,
   ) {
-    return this.userService.updateUserProfile(id, dto);
+    return this.usersService.updateUserProfile(id, dto);
   }
 
   @Auth("admin")
   @Delete("/:id")
   async deleteUserById(@Param("id", IdValidationPipe) id: string) {
-    return this.userService.deleteUser(id);
+    return this.usersService.deleteUser(id);
   }
 
   // ADMIN METHODS

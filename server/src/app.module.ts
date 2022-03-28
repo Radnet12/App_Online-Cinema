@@ -8,6 +8,7 @@ import { AuthModule } from "./auth/auth.module";
 import { UserModule } from "./users/users.module";
 import { GenreModule } from "./genres/genres.module";
 import { FilesModule } from "./files/files.module";
+import { ActorsModule } from "./actors/actors.module";
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { FilesModule } from "./files/files.module";
     UserModule,
     GenreModule,
     FilesModule,
+    ActorsModule,
   ],
   controllers: [],
   providers: [],

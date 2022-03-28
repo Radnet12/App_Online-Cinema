@@ -6,11 +6,11 @@ import {
   UploadedFile,
   UseInterceptors,
 } from "@nestjs/common";
+import { FileInterceptor } from "@nestjs/platform-express";
 
 import { Auth } from "@decorators";
 
 import { FilesService } from "./files.service";
-import { FileInterceptor } from "@nestjs/platform-express";
 
 @Controller("files")
 export class FilesController {

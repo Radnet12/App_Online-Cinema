@@ -15,7 +15,7 @@ export class GenreService {
     @InjectModel(GenreModel) private readonly genreModel: ModelType<GenreModel>,
   ) {}
 
-  async getGenrebySlug(slug: string) {
+  async getGenreBySlug(slug: string) {
     const genre = await this.genreModel.findOne({ slug });
 
     if (!genre) {
@@ -63,7 +63,7 @@ export class GenreService {
 
   // ADMIN METHODS
 
-  async getGenrebyId(_id) {
+  async getGenreById(_id) {
     const genre = await this.genreModel.findById(_id);
 
     if (!genre) {

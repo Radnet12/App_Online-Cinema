@@ -18,21 +18,21 @@ import { GenreService } from "./genres.service";
 
 @Controller("genres")
 export class GenreController {
-  constructor(private readonly genreService: GenreService) {}
+  constructor(private readonly genresService: GenreService) {}
 
   @Get()
   async getAllGenres(@Query("searchTerm") searchTerm?: string) {
-    return this.genreService.getAllGenres(searchTerm);
+    return this.genresService.getAllGenres(searchTerm);
   }
 
   @Get("/slug/:slug")
   async getGenreBySlug(@Param("slug") slug: string) {
-    return this.genreService.getGenrebySlug(slug);
+    return this.genresService.getGenreBySlug(slug);
   }
 
   @Get("/collections")
   async getCollections() {
-    return this.genreService.getCollections();
+    return this.genresService.getCollections();
   }
 
   // ADMIN METHODS
@@ -40,14 +40,14 @@ export class GenreController {
   @Auth("admin")
   @Get("/:id")
   async getGenreById(@Param("id", IdValidationPipe) id: string) {
-    return this.genreService.getGenrebySlug(id);
+    return this.genresService.getGenreById(id);
   }
 
   @Auth("admin")
   @HttpCode(200)
   @Post()
   async createGenre() {
-    return this.genreService.createGenre();
+    return this.genresService.createGenre();
   }
 
   @Auth("admin")
@@ -56,13 +56,13 @@ export class GenreController {
     @Param("id", IdValidationPipe) id: string,
     @Body() dto: GenreDto,
   ) {
-    return this.genreService.updateGenre(id, dto);
+    return this.genresService.updateGenre(id, dto);
   }
 
   @Auth("admin")
   @Delete("/:id")
   async deleteGenre(@Param("id", IdValidationPipe) id: string) {
-    return this.genreService.deleteGenre(id);
+    return this.genresService.deleteGenre(id);
   }
 
   // ADMIN METHODS

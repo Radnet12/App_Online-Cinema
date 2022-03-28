@@ -18,29 +18,29 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {
-      "@configs": ["src/#common/configs/index"],
-      "@configs/*": ["src/#common/configs/*"],
+      "@configs": ["src/@common/configs/index"],
+      "@configs/*": ["src/@common/configs/*"],
 
-      "@decorators": ["src/#common/decorators/index"],
-      "@decorators/*": ["src/#common/decorators/*"],
+      "@decorators": ["src/@common/decorators/index"],
+      "@decorators/*": ["src/@common/decorators/*"],
 
-      "@dto": ["src/#common/dto/index"],
-      "@dto/*": ["src/#common/dto/*"],
+      "@dto": ["src/@common/dto/index"],
+      "@dto/*": ["src/@common/dto/*"],
 
-      "@guards": ["src/#common/guards/index"],
-      "@guards/*": ["src/#common/guards/*"],
+      "@guards": ["src/@common/guards/index"],
+      "@guards/*": ["src/@common/guards/*"],
 
-      "@models": ["src/#common/models/index"],
-      "@models/*": ["src/#common/models/*"],
+      "@models": ["src/@common/models/index"],
+      "@models/*": ["src/@common/models/*"],
 
-      "@pipes": ["src/#common/pipes/index"],
-      "@pipes/*": ["src/#common/pipes/*"],
+      "@pipes": ["src/@common/pipes/index"],
+      "@pipes/*": ["src/@common/pipes/*"],
 
-      "@strategies": ["src/#common/strategies/index"],
-      "@strategies/*": ["src/#common/strategies/*"],
+      "@strategies": ["src/@common/strategies/index"],
+      "@strategies/*": ["src/@common/strategies/*"],
 
-      "@types": ["src/#common/types/index"],
-      "@types/*": ["src/#common/types/*"],
+      "@types": ["src/@common/types/index"],
+      "@types/*": ["src/@common/types/*"],
 
       "@/*": ["src/*"]
     }
