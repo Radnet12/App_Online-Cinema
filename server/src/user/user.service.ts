@@ -1,9 +1,10 @@
-import { UserModel } from "./user.model";
-import { ModelType } from "@typegoose/typegoose/lib/types";
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { InjectModel } from "nestjs-typegoose";
-import { UpdateUserDto } from "./dto/updateUser.dto";
+import { ModelType } from "@typegoose/typegoose/lib/types";
 import { genSalt, hash } from "bcryptjs";
+
+import { UserModel } from "./user.model";
+import { UpdateUserDto } from "./dto/updateUser.dto";
 
 @Injectable()
 export class UserService {

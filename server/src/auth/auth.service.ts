@@ -1,16 +1,17 @@
-import { RefreshTokenDto } from "./dto/refreshToken.dto";
 import {
   BadRequestException,
   Injectable,
   UnauthorizedException,
 } from "@nestjs/common";
-import { ModelType } from "@typegoose/typegoose/lib/types";
+import { JwtService } from "@nestjs/jwt";
 import { InjectModel } from "nestjs-typegoose";
+import { ModelType } from "@typegoose/typegoose/lib/types";
 import { hash, compare, genSalt } from "bcryptjs";
 
 import { AuthDto } from "./dto/auth.dto";
-import { UserModel } from "./../user/user.model";
-import { JwtService } from "@nestjs/jwt";
+import { RefreshTokenDto } from "./dto/refreshToken.dto";
+
+import { UserModel } from "@/user/user.model";
 
 @Injectable()
 export class AuthService {

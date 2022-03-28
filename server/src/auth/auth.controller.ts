@@ -1,13 +1,8 @@
+import { Body, Controller, HttpCode, Post } from "@nestjs/common";
+
 import { RefreshTokenDto } from "./dto/refreshToken.dto";
 import { AuthDto } from "./dto/auth.dto";
-import {
-  Body,
-  Controller,
-  HttpCode,
-  Post,
-  UsePipes,
-  ValidationPipe,
-} from "@nestjs/common";
+
 import { AuthService } from "./auth.service";
 
 @Controller("auth")

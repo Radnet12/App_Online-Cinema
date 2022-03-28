@@ -1,10 +1,12 @@
-import { getMongoDbConfig } from "./config/mongo.config";
 import { Module } from "@nestjs/common";
 import { ConfigModule, ConfigService } from "@nestjs/config";
 import { TypegooseModule } from "nestjs-typegoose";
+
+import { getMongoDbConfig } from "@Config/mongo.config";
+
 import { AuthModule } from "./auth/auth.module";
 import { UserModule } from "./user/user.module";
-import { GenreModule } from './genre/genre.module';
+import { GenreModule } from "./genre/genre.module";
 
 @Module({
   imports: [

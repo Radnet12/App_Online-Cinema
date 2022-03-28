@@ -1,5 +1,3 @@
-import { IdValidationPipe } from "./../pipes/id.validation.pipe";
-import { Auth } from "src/auth/decorators/auth.decorator";
 import {
   Body,
   Controller,
@@ -10,9 +8,11 @@ import {
   Post,
   Put,
   Query,
-  UsePipes,
-  ValidationPipe,
 } from "@nestjs/common";
+
+import { IdValidationPipe } from "@Pipes/id.validation.pipe";
+import { Auth } from "@/auth/decorators/auth.decorator";
+
 import { GenreService } from "./genre.service";
 import { CreateGenreDto } from "./dto/createGenre.dto";
 
@@ -38,7 +38,6 @@ export class GenreController {
   // ADMIN METHODS
 
   @Auth("admin")
-  @HttpCode(200)
   @Get("/:id")
   async getGenreById(@Param("id", IdValidationPipe) id: string) {
     return this.genreService.getGenrebySlug(id);
@@ -52,7 +51,6 @@ export class GenreController {
   }
 
   @Auth("admin")
-  @HttpCode(200)
   @Put("/:id")
   async updateGenre(
     @Param("id", IdValidationPipe) id: string,
@@ -62,7 +60,6 @@ export class GenreController {
   }
 
   @Auth("admin")
-  @HttpCode(200)
   @Delete("/:id")
   async deleteGenre(@Param("id", IdValidationPipe) id: string) {
     return this.genreService.deleteGenre(id);

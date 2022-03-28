@@ -1,19 +1,18 @@
-import { IdValidationPipe } from "./../pipes/id.validation.pipe";
-import { UpdateUserDto } from "./dto/updateUser.dto";
-import { UserService } from "./user.service";
 import {
   Body,
   Controller,
   Delete,
   Get,
-  HttpCode,
   Param,
   Put,
   Query,
-  UsePipes,
-  ValidationPipe,
 } from "@nestjs/common";
-import { Auth } from "src/auth/decorators/auth.decorator";
+
+import { IdValidationPipe } from "@Pipes/id.validation.pipe";
+
+import { Auth } from "@/auth/decorators/auth.decorator";
+import { UpdateUserDto } from "./dto/updateUser.dto";
+import { UserService } from "./user.service";
 import { User } from "./decorators/user.decorator";
 
 @Controller("users")
@@ -21,7 +20,6 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Auth()
-  @HttpCode(200)
   @Put("/profile")
   async updateUserProfile(
     @User("_id") _id: string,
@@ -57,7 +55,6 @@ export class UserController {
   }
 
   @Auth("admin")
-  @HttpCode(200)
   @Put("/:id")
   async updateUserById(
     @Param("id", IdValidationPipe) id: string,
@@ -67,7 +64,6 @@ export class UserController {
   }
 
   @Auth("admin")
-  @HttpCode(200)
   @Delete("/:id")
   async deleteUserById(@Param("id", IdValidationPipe) id: string) {
     return this.userService.deleteUser(id);
