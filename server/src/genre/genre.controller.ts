@@ -11,10 +11,11 @@ import {
 } from "@nestjs/common";
 
 import { IdValidationPipe } from "@Pipes/id.validation.pipe";
+import { GenreDto } from "@Dto/genre.dto";
+
 import { Auth } from "@/auth/decorators/auth.decorator";
 
 import { GenreService } from "./genre.service";
-import { CreateGenreDto } from "./dto/createGenre.dto";
 
 @Controller("genres")
 export class GenreController {
@@ -54,7 +55,7 @@ export class GenreController {
   @Put("/:id")
   async updateGenre(
     @Param("id", IdValidationPipe) id: string,
-    @Body() dto: CreateGenreDto,
+    @Body() dto: GenreDto,
   ) {
     return this.genreService.updateGenre(id, dto);
   }

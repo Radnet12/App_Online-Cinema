@@ -1,8 +1,9 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { InjectModel } from "nestjs-typegoose";
 import { ModelType } from "@typegoose/typegoose/lib/types";
-import { CreateGenreDto } from "./dto/createGenre.dto";
-import { GenreModel } from "./genre.model";
+
+import { GenreDto } from "@Dto/genre.dto";
+import { GenreModel } from "@Models/genre.model";
 
 @Injectable()
 export class GenreService {
@@ -69,7 +70,7 @@ export class GenreService {
   }
 
   async createGenre() {
-    const genreDefaultValues: CreateGenreDto = {
+    const genreDefaultValues: GenreDto = {
       name: "",
       slug: "",
       description: "",
@@ -81,7 +82,7 @@ export class GenreService {
     return genre._id;
   }
 
-  async updateGenre(_id: string, dto: CreateGenreDto) {
+  async updateGenre(_id: string, dto: GenreDto) {
     const genre = await this.genreModel
       .findByIdAndUpdate(_id, dto, { new: true })
       .exec();

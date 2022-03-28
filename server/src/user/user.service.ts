@@ -3,8 +3,8 @@ import { InjectModel } from "nestjs-typegoose";
 import { ModelType } from "@typegoose/typegoose/lib/types";
 import { genSalt, hash } from "bcryptjs";
 
-import { UserModel } from "./user.model";
-import { UpdateUserDto } from "./dto/updateUser.dto";
+import { UserModel } from "@Models/user.model";
+import { UserDto } from "@Dto/user.dto";
 
 @Injectable()
 export class UserService {
@@ -48,7 +48,7 @@ export class UserService {
       .exec();
   }
 
-  async updateUserProfile(_id: string, dto: UpdateUserDto) {
+  async updateUserProfile(_id: string, dto: UserDto) {
     const user = await this.getUserbyId(_id);
 
     const isSameUser = await this.userModel.findOne({ email: dto.email });

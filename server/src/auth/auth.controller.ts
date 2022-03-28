@@ -1,7 +1,7 @@
 import { Body, Controller, HttpCode, Post } from "@nestjs/common";
 
-import { RefreshTokenDto } from "./dto/refreshToken.dto";
-import { AuthDto } from "./dto/auth.dto";
+import { RefreshTokenDto } from "@Dto/refreshToken.dto";
+import { AuthDto } from "@Dto/auth.dto";
 
 import { AuthService } from "./auth.service";
 

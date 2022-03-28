@@ -9,9 +9,10 @@ import {
 } from "@nestjs/common";
 
 import { IdValidationPipe } from "@Pipes/id.validation.pipe";
+import { UserDto } from "@Dto/user.dto";
 
 import { Auth } from "@/auth/decorators/auth.decorator";
-import { UpdateUserDto } from "./dto/updateUser.dto";
+
 import { UserService } from "./user.service";
 import { User } from "./decorators/user.decorator";
 
@@ -21,10 +22,7 @@ export class UserController {
 
   @Auth()
   @Put("/profile")
-  async updateUserProfile(
-    @User("_id") _id: string,
-    @Body() dto: UpdateUserDto,
-  ) {
+  async updateUserProfile(@User("_id") _id: string, @Body() dto: UserDto) {
     return this.userService.updateUserProfile(_id, dto);
   }
 
@@ -58,7 +56,7 @@ export class UserController {
   @Put("/:id")
   async updateUserById(
     @Param("id", IdValidationPipe) id: string,
-    @Body() dto: UpdateUserDto,
+    @Body() dto: UserDto,
   ) {
     return this.userService.updateUserProfile(id, dto);
   }

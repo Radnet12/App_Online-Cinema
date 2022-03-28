@@ -20,7 +20,9 @@
     "paths": {
       "@/*": ["src/*"],
       "@Pipes/*": ["src/#common/pipes/*"],
-      "@Config/*": ["src/#common/config/*"]
+      "@Config/*": ["src/#common/config/*"],
+      "@Dto/*": ["src/#common/dto/*"],
+      "@Models/*": ["src/#common/models/*"]
     }
   }
 }
