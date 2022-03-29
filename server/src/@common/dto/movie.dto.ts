@@ -1,3 +1,4 @@
+import { Type } from "class-transformer";
 import {
   IsArray,
   IsBoolean,
@@ -5,6 +6,7 @@ import {
   IsObject,
   IsOptional,
   IsString,
+  ValidateNested,
 } from "class-validator";
 
 export class MovieDtoParams {
@@ -29,13 +31,12 @@ export class MovieDto {
   title: string;
 
   @IsString()
-  description: string;
-
-  @IsString()
   slug: string;
 
   @IsOptional()
   @IsObject()
+  @ValidateNested()
+  @Type(() => MovieDtoParams)
   params?: MovieDtoParams;
 
   @IsString()
@@ -43,11 +44,11 @@ export class MovieDto {
 
   @IsArray()
   @IsString({ each: true })
-  genres: string;
+  genres: string[];
 
   @IsArray()
   @IsString({ each: true })
-  actors: string;
+  actors: string[];
 
   @IsOptional()
   @IsBoolean()

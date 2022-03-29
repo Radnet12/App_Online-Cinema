@@ -26,9 +26,6 @@ export class MovieModel extends TimeStamps {
   @prop()
   title: string;
 
-  @prop()
-  description: string;
-
   @prop({ unique: true })
   slug: string;
 
@@ -42,7 +39,7 @@ export class MovieModel extends TimeStamps {
   videoUrl: string;
 
   @prop({ default: 0 })
-  openCount?: number;
+  watchCount?: number;
 
   @prop({ ref: () => GenreModel })
   genres: Ref<GenreModel>[];
