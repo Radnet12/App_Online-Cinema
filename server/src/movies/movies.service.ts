@@ -10,10 +10,13 @@ import { Types } from "mongoose";
 import { MovieModel } from "@models";
 import { MovieDto } from "@dto";
 
+import { TelegramService } from "@/telegram/telegram.service";
+
 @Injectable()
 export class MoviesService {
   constructor(
     @InjectModel(MovieModel) private readonly movieModel: ModelType<MovieModel>,
+    private readonly telegramService: TelegramService,
   ) {}
 
   async getAllMovies(searchTerm?: string) {
@@ -153,6 +156,11 @@ export class MoviesService {
   }
 
   async updateMovie(_id: string, dto: MovieDto) {
+    if (!dto.isPublishedInTelegram) {
+      await this.sendNotification(dto);
+      dto.isPublishedInTelegram = true;
+    }
+
     const movie = await this.movieModel
       .findByIdAndUpdate(_id, dto, { new: true })
       .exec();
@@ -175,4 +183,20 @@ export class MoviesService {
   }
 
   // ADMIN METHODS
+
+  private async sendNotification(dto: MovieDto) {
+    await this.telegramService.sendPhoto(
+      "https://itc.ua/wp-content/uploads/2019/05/John_Wick_3_i00.jpg",
+    );
+
+    const msg = `<b>${dto.title}</b>`;
+
+    await this.telegramService.sendMessage(msg, {
+      reply_markup: {
+        inline_keyboard: [
+          [{ url: "https://okko.tv/movie/free-guy", text: "Go to watch" }],
+        ],
+      },
+    });
+  }
 }

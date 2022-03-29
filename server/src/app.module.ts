@@ -11,6 +11,7 @@ import { FilesModule } from "./files/files.module";
 import { ActorsModule } from "./actors/actors.module";
 import { MoviesModule } from './movies/movies.module';
 import { RatingModule } from './rating/rating.module';
+import { TelegramModule } from './telegram/telegram.module';
 
 @Module({
   imports: [
@@ -30,6 +31,7 @@ import { RatingModule } from './rating/rating.module';
     ActorsModule,
     MoviesModule,
     RatingModule,
+    TelegramModule,
   ],
   controllers: [],
   providers: [],
