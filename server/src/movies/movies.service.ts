@@ -108,6 +108,12 @@ export class MoviesService {
     return movie;
   }
 
+  async updateMovieRating(_id: Types.ObjectId, rating: number) {
+    return this.movieModel
+      .findByIdAndUpdate(_id, { rating }, { new: true })
+      .exec();
+  }
+
   // ADMIN METHODS
 
   async getMovieById(_id) {

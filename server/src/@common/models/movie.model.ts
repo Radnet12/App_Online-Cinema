@@ -32,7 +32,7 @@ export class MovieModel extends TimeStamps {
   @prop()
   params?: MovieDtoParams;
 
-  @prop({ default: 4.0 })
+  @prop({ default: 0 })
   rating?: number;
 
   @prop()
