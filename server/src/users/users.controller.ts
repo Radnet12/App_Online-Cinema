@@ -7,10 +7,12 @@ import {
   Put,
   Query,
 } from "@nestjs/common";
+import { Types } from "mongoose";
 
 import { IdValidationPipe } from "@pipes";
 import { UserDto } from "@dto";
 import { Auth, User } from "@decorators";
+import { UserModel } from "@models";
 
 import { UserService } from "./users.service";
 
@@ -28,6 +30,21 @@ export class UserController {
   @Get("/profile")
   async getUserProfile(@User("_id") _id: string) {
     return this.usersService.getUserById(_id);
+  }
+
+  @Auth()
+  @Get("/profile/favorites")
+  async getAllFavoriteMovies(@User("_id") _id: Types.ObjectId) {
+    return this.usersService.getAllFavoriteMovies(_id);
+  }
+
+  @Auth()
+  @Put("/profile/favorites")
+  async toggleUserFavorites(
+    @Body("movieId", IdValidationPipe) movieId: Types.ObjectId,
+    @User() user: UserModel,
+  ) {
+    return this.usersService.toggleUserFavorites(movieId, user);
   }
 
   // ADMIN METHODS
