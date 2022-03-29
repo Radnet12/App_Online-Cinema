@@ -3,6 +3,7 @@ import { TypegooseModule } from "nestjs-typegoose";
 
 import { GenreModel } from "@models";
 
+import { MoviesService } from "@/movies/movies.service";
 import { GenreController } from "./genres.controller";
 import { GenreService } from "./genres.service";
 
@@ -13,6 +14,7 @@ import { GenreService } from "./genres.service";
     TypegooseModule.forFeature([
       { typegooseClass: GenreModel, schemaOptions: { collection: "genres" } },
     ]),
+    MoviesService,
   ],
 })
 export class GenreModule {}

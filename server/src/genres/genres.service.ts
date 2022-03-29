@@ -6,13 +6,17 @@ import {
 import { InjectModel } from "nestjs-typegoose";
 import { ModelType } from "@typegoose/typegoose/lib/types";
 
-import { GenreDto } from "@dto";
+import { GenreDto, MovieDto } from "@dto";
 import { GenreModel } from "@models";
+import { Collection } from "@types";
+
+import { MoviesService } from "@/movies/movies.service";
 
 @Injectable()
 export class GenreService {
   constructor(
     @InjectModel(GenreModel) private readonly genreModel: ModelType<GenreModel>,
+    private readonly moviesService: MoviesService,
   ) {}
 
   async getGenreBySlug(slug: string) {
@@ -56,7 +60,22 @@ export class GenreService {
   async getCollections() {
     const genres = await this.getAllGenres();
 
-    const collections = genres;
+    const collections = await Promise.all(
+      genres.map(async (genre) => {
+        const moviesByGenres = await this.moviesService.getMoviesByGenres([
+          genre._id,
+        ]);
+
+        const result: Collection = {
+          _id: String(genre._id),
+          image: moviesByGenres[0].largePoster,
+          slug: genre.slug,
+          title: genre.name,
+        };
+
+        return result;
+      }),
+    );
 
     return collections;
   }
