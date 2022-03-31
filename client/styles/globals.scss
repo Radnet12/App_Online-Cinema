@@ -2,19 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --clr-primary-400: "#e30b13";
+}
+
 html,
 body {
-  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  padding: 0;
+  font-family: "Outfit", sans-serif;
+  @apply bg-gray-900;
 }
 
 a {
-  color: inherit;
   text-decoration: none;
+  color: inherit;
 }
 
 * {
   box-sizing: border-box;
+}
+
+input[type="file"],
+input[type="file"]::-webkit-file-upload-button {
+  @apply cursor-pointer focus:outline-none;
+}
+
+input:focus {
+  box-shadow: none !important;
 }

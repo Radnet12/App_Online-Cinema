@@ -16,10 +16,18 @@
     "incremental": true,
     "baseUrl": "./app/",
     "paths": {
+      "@/pages/*": ["pages/*"],
+      "@/layout/*": ["layout/*"],
       "@/components/*": ["components/*"],
-      "@/ui/*": ["components/ui/*"],
+      "@/ui/*": ["components/ui/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "tailwind.config.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "../tailwind.config.js",
+    "pages/_app.js"
+  ],
   "exclude": ["node_modules"]
 }
