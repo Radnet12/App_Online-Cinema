@@ -14,12 +14,28 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": "./app/",
+    "baseUrl": "./",
     "paths": {
-      "@/pages/*": ["pages/*"],
-      "@/layout/*": ["layout/*"],
-      "@/components/*": ["components/*"],
-      "@/ui/*": ["components/ui/*"]
+      "@/assets/*": ["app/assets/*"],
+
+      "@/pages/*": ["app/pages/*"],
+
+      "@/layout": ["app/layout/index"],
+      "@/layout/*": ["app/layout/*"],
+
+      "@/common": ["app/components/common/index"],
+      "@/common/*": ["app/components/common/*"],
+
+      "@/ui": ["app/components/ui/index"],
+      "@/ui/*": ["app/components/ui/*"],
+
+      "@/components/*": ["app/components/*"],
+
+      "@/types": ["app/utils/types/index"],
+      "@/types/*": ["app/utils/types/*"],
+
+      "@/constants": ["app/utils/constants/index"],
+      "@/constants/*": ["app/utils/constants/*"]
     }
   },
   "include": [

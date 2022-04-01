@@ -1,10 +1,10 @@
 import { FC } from "react";
 
-import styles from "./Layout.module.scss";
-import { Navigation } from "./Navigation/Navigation";
-import { Sidebar } from "./Sidebar/Sidebar";
+import { Navigation, Sidebar } from "@/common";
 
-export const Layout: FC = (props) => {
+import styles from "./AppLayout.module.scss";
+
+export const AppLayout: FC = (props) => {
   // **Props
   const { children } = props;
 

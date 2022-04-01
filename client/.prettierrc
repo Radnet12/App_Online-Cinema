@@ -1,14 +1,37 @@
 {
-  "importOrder": [
-    "<THIRD_PARTY_MODULES>",
-    "^@/pages/(.*)$",
-    "^@/layout/(.*)$",
-    "^@/components/(.*)$",
-    "^@/ui/(.*)$",
-    "^../(.*)$",
-    "^./(.*)$",
-    "(.scss)$"
-  ],
   "importOrderSeparation": true,
-  "importOrderSortSpecifiers": true
+  "importOrderSortSpecifiers": true,
+  "importOrder": [
+    "^react$",
+
+    "^next/(.*)$",
+
+    "<THIRD_PARTY_MODULES>",
+
+    "^@/pages/(.*)$",
+
+    "^@/layout$",
+    "^@/layout/(.*)$",
+
+    "^@/common$",
+    "^@/common/(.*)$",
+
+    "^@/ui$",
+    "^@/ui/(.*)$",
+
+    "^@/components/(.*)$",
+
+    "^@/types$",
+    "^@/types/(.*)$",
+
+    "^@/constants$",
+    "^@/constants/(.*)$",
+
+    "^../.*$(?<!\\.scss)$",
+    "^./.*$(?<!\\.scss)$",
+
+    "^@/assets/(.*)$",
+
+    "(.scss)$"
+  ]
 }

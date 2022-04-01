@@ -3,25 +3,26 @@ const plugin = require("tailwindcss/plugin");
 
 module.exports = {
   content: ["./pages/**/*.{js,ts,jsx,tsx}", "./app/**/*.{js,ts,jsx,tsx}"],
-  colors: {
-    primary: "#e30b13",
-    black: colors.black,
-    white: colors.white,
-    transparent: colors.transparent,
-    yellow: {
-      700: "#f5c521",
-    },
-    gray: {
-      300: "d9dae8",
-      500: "999aa5",
-      600: "66676e",
-      700: "39393f",
-      800: "242529",
-      900: "191b1f",
-      950: "101215",
-    },
-  },
+
   theme: {
+    colors: {
+      primary: "#e30b13",
+      black: colors.black,
+      white: colors.white,
+      transparent: colors.transparent,
+      yellow: {
+        700: "#f5c521",
+      },
+      gray: {
+        300: "#d9dae8",
+        500: "#999aa5",
+        600: "#66676e",
+        700: "#39393f",
+        800: "#242529",
+        900: "#191b1f",
+        950: "#101215",
+      },
+    },
     extend: {
       spacing: {
         0.5: "0.12rem",

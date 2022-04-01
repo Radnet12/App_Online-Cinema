@@ -1,13 +1,13 @@
 import { FC } from "react";
 
-import { Layout } from "@/layout/Layout";
+import { AppLayout } from "@/layout";
 
 import { IHome } from "./Home.interface";
 
 export const Home: FC<IHome> = () => {
   return (
-    <Layout>
+    <AppLayout>
       <h1>Main page</h1>
-    </Layout>
+    </AppLayout>
   );
 };
