@@ -2,7 +2,8 @@ import { FC } from "react";
 
 import { Logo } from "@/ui";
 
-import { Menu } from "./components/Menu/Menu";
+import { Menu } from "./Menu/Menu";
+
 import styles from "./Navigation.module.scss";
 
 export const Navigation: FC = () => {
