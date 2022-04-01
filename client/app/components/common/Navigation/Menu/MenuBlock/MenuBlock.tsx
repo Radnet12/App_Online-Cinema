@@ -3,8 +3,9 @@ import { FC } from "react";
 import { AuthMenuItem } from "../AuthMenuItem/AuthMenuItem";
 import { MenuItem } from "../MenuItem/MenuItem";
 
-import styles from "./MenuBlock.module.scss";
 import { MenuBlockType } from "./MenuBlock.type";
+
+import styles from "./MenuBlock.module.scss";
 
 export const MenuBlock: FC<{ menu: MenuBlockType }> = (props) => {
   // **Props

@@ -1,6 +1,7 @@
+import { FC } from "react";
+
 import Image from "next/image";
 import Link from "next/link";
-import { FC } from "react";
 
 import logoImage from "@/assets/img/ui/logo.svg";
 
