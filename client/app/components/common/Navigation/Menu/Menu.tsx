@@ -2,12 +2,14 @@ import { FC } from "react";
 
 import { useQuery } from "react-query";
 
+import { Loader } from "@/ui";
+
 import { GeneralMenuConstant, MainMenuConstant } from "@/constants";
 
 import { GenreService } from "@/services";
 
 import { MenuBlock } from "./MenuBlock/MenuBlock";
-import { MenuItemType } from "./MenuItem/MenuItem.type";
+import { IMenuItem } from "./MenuItem/MenuItem.interface";
 
 export const Menu: FC = () => {
   // API
@@ -23,19 +25,21 @@ export const Menu: FC = () => {
                 icon: genre.icon,
                 link: `/genre/${genre.slug}`,
                 title: genre.name,
-              } as MenuItemType)
+              } as IMenuItem)
           )
           .splice(0, 4),
     }
   );
 
-  console.log(data);
-
   return (
-    <div>
+    <>
       <MenuBlock menu={MainMenuConstant} />
-      <MenuBlock menu={{ title: "Popular genres", items: data || [] }} />
+      <MenuBlock
+        menu={{ title: "Popular genres", items: data || [] }}
+        isLoading={isLoading}
+        count={4}
+      />
       <MenuBlock menu={GeneralMenuConstant} />
-    </div>
+    </>
   );
 };

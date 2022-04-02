@@ -1,6 +1,6 @@
 import { IconType } from "./icon.type";
 
-export interface GenreType {
+export interface IGenre {
   _id: string;
   name: string;
   slug: string;

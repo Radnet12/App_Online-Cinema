@@ -33,6 +33,9 @@
 
       "@/components/*": ["app/components/*"],
 
+      "@/hooks": ["app/hooks/index"],
+      "@/hooks/*": ["app/hooks/*"],
+
       "@/services": ["app/services/index"],
       "@/services/*": ["app/services/*"],
 
@@ -40,7 +43,10 @@
       "@/types/*": ["app/utils/types/*"],
 
       "@/constants": ["app/utils/constants/index"],
-      "@/constants/*": ["app/utils/constants/*"]
+      "@/constants/*": ["app/utils/constants/*"],
+
+      "@/helpers": ["app/utils/helpers/index"],
+      "@/helpers/*": ["app/utils/helpers/*"]
     }
   },
   "include": [

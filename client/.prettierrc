@@ -21,19 +21,25 @@
 
     "^@/components/(.*)$",
 
+    "^@/services$",
+    "^@/services/(.*)$",
+
+    "^@/hooks$",
+    "^@/hooks/(.*)$",
+
     "^@/types$",
     "^@/types/(.*)$",
 
     "^@/constants$",
     "^@/constants/(.*)$",
 
-    "^@/services$",
-    "^@/services/(.*)$",
+    "^@/helpers$",
+    "^@/helpers/(.*)$",
+
+    "^@/assets/(.*)$",
 
     "^../.*$(?<!\\.scss)$",
     "^./.*$(?<!\\.scss)$",
-
-    "^@/assets/(.*)$",
 
     "(.scss)$"
   ]

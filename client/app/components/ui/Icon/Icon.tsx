@@ -8,7 +8,7 @@ export const Icon: FC<{ icon: IconType }> = (props) => {
   // **Props
   const { icon } = props;
 
-  const IconComponent = MaterialIcons[icon];
+  const IconComponent = MaterialIcons[icon] || MaterialIcons.MdDragIndicator;
 
-  return <IconComponent /> || <MaterialIcons.MdDragIndicator />;
+  return <IconComponent />;
 };

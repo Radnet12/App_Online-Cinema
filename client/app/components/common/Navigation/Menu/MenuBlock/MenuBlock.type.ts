@@ -1,6 +1,13 @@
-import { MenuItemType } from "../MenuItem/MenuItem.type";
+import { IMenuItem } from "../MenuItem/MenuItem.interface";
 
-export interface MenuBlockType {
+export interface IMenuBlock {
   title: string;
-  items: MenuItemType[];
+  items: IMenuItem[];
+  isLoading?: boolean;
+}
+
+export interface IMenuBlockProps {
+  menu: IMenuBlock;
+  isLoading?: boolean;
+  count?: number;
 }

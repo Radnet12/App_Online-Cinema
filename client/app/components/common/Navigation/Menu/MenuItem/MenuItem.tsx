@@ -7,11 +7,11 @@ import cn from "classnames";
 
 import { Icon } from "@/ui";
 
-import { MenuItemType } from "./MenuItem.type";
+import { IMenuItem } from "./MenuItem.interface";
 
 import styles from "../MenuBlock/MenuBlock.module.scss";
 
-export const MenuItem: FC<{ item: MenuItemType }> = (props) => {
+export const MenuItem: FC<{ item: IMenuItem }> = (props) => {
   // **Props
   const { item } = props;
   const { asPath } = useRouter();

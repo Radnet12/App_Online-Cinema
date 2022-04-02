@@ -3,18 +3,17 @@ const nextConfig = {
   poweredByHeader: false,
   env: {
     APP_URL: process.env.REACT_APP_URL,
-    APP_ENV: process.env.REACT_APP_ENV,
-    APP_SERVER_URL: process.env.REACT_APP_SERVER_URL,
+    API_URL: process.env.REACT_API_URL,
   },
   async rewrites() {
     return [
       {
         source: "/api/:path*",
-        destination: "http://localhost:5000/api/:path*",
+        destination: `${process.env.REACT_API_URL}/api/:path*`,
       },
       {
         source: "/uploads/:path*",
-        destination: "http://localhost:5000/uploads/:path*",
+        destination: `${process.env.REACT_API_URL}/uploads/:path*`,
       },
     ];
   },

@@ -1,13 +1,21 @@
 import { FC } from "react";
 
-import { AppLayout } from "@/layout";
+import { Heading, Meta } from "@/ui";
 
 import { IHome } from "./Home.interface";
 
 export const Home: FC<IHome> = () => {
   return (
-    <AppLayout>
-      <h1>Main page</h1>
-    </AppLayout>
+    <Meta
+      title="Watch movies online"
+      description="Watch MovieApp movies and TV shows online or stream right to your browser"
+    >
+      <Heading
+        title="Watch movies online"
+        classname="text-gray-300 mb-8 text-xl"
+      >
+        Main page
+      </Heading>
+    </Meta>
   );
 };

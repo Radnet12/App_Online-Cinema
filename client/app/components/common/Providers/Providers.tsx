@@ -2,6 +2,8 @@ import { FC } from "react";
 
 import { QueryClient, QueryClientProvider } from "react-query";
 
+import { AppLayout } from "@/layout";
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -12,6 +14,8 @@ const queryClient = new QueryClient({
 
 export const Providers: FC = ({ children }) => {
   return (
-    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    <QueryClientProvider client={queryClient}>
+      <AppLayout>{children}</AppLayout>
+    </QueryClientProvider>
   );
 };
