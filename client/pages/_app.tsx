@@ -1,9 +1,13 @@
 import type { AppProps } from "next/app";
 
+import { Providers } from "@/common";
+
 import "../styles/globals.scss";
 
 const App = ({ Component, pageProps }: AppProps) => (
-  <Component {...pageProps} />
+  <Providers>
+    <Component {...pageProps} />
+  </Providers>
 );
 
 export default App;

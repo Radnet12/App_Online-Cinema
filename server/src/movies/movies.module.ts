@@ -3,7 +3,7 @@ import { TypegooseModule } from "nestjs-typegoose";
 
 import { MovieModel } from "@models";
 
-import { TelegramService } from "@/telegram/telegram.service";
+import { TelegramModule } from "@/telegram/telegram.module";
 import { MoviesService } from "./movies.service";
 import { MoviesController } from "./movies.controller";
 
@@ -14,7 +14,7 @@ import { MoviesController } from "./movies.controller";
     TypegooseModule.forFeature([
       { typegooseClass: MovieModel, schemaOptions: { collection: "movies" } },
     ]),
-    TelegramService,
+    TelegramModule,
   ],
   exports: [MoviesService],
 })

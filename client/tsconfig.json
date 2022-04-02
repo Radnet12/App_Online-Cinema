@@ -17,6 +17,7 @@
     "baseUrl": "./",
     "paths": {
       "@/assets/*": ["app/assets/*"],
+
       "@/public/*": ["public/*"],
 
       "@/pages/*": ["app/pages/*"],
@@ -31,6 +32,9 @@
       "@/ui/*": ["app/components/ui/*"],
 
       "@/components/*": ["app/components/*"],
+
+      "@/services": ["app/services/index"],
+      "@/services/*": ["app/services/*"],
 
       "@/types": ["app/utils/types/index"],
       "@/types/*": ["app/utils/types/*"],

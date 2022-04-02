@@ -14,5 +14,6 @@ import { UserService } from "./users.service";
       { typegooseClass: UserModel, schemaOptions: { collection: "users" } },
     ]),
   ],
+  exports: [UserService],
 })
 export class UserModule {}

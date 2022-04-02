@@ -7,12 +7,12 @@ import { ExtraReplyMessage } from "telegraf/typings/telegram-types";
 
 @Injectable()
 export class TelegramService {
-  bot: Telegraf;
   options: Telegram;
+  bot: Telegraf;
 
   constructor() {
-    this.bot = new Telegraf(this.options.token);
     this.options = getTelegramConfig();
+    this.bot = new Telegraf(this.options.token);
   }
 
   async sendMessage(

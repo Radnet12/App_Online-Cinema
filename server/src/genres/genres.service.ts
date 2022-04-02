@@ -1,4 +1,5 @@
 import {
+  BadRequestException,
   ConflictException,
   Injectable,
   NotFoundException,
@@ -6,7 +7,7 @@ import {
 import { InjectModel } from "nestjs-typegoose";
 import { ModelType } from "@typegoose/typegoose/lib/types";
 
-import { GenreDto, MovieDto } from "@dto";
+import { GenreDto } from "@dto";
 import { GenreModel } from "@models";
 import { Collection } from "@types";
 
@@ -116,6 +117,12 @@ export class GenreService {
   }
 
   async updateGenre(_id: string, dto: GenreDto) {
+    const genreBySlug = await this.genreModel.findOne({ slug: dto.slug });
+
+    if (genreBySlug?.slug === dto.slug) {
+      throw new BadRequestException("Genre with such slug alredy exists");
+    }
+
     const genre = await this.genreModel
       .findByIdAndUpdate(_id, dto, { new: true })
       .exec();

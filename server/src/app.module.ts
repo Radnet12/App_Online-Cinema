@@ -9,9 +9,9 @@ import { UserModule } from "./users/users.module";
 import { GenreModule } from "./genres/genres.module";
 import { FilesModule } from "./files/files.module";
 import { ActorsModule } from "./actors/actors.module";
-import { MoviesModule } from './movies/movies.module';
-import { RatingModule } from './rating/rating.module';
-import { TelegramModule } from './telegram/telegram.module';
+import { MoviesModule } from "./movies/movies.module";
+import { RatingModule } from "./rating/rating.module";
+import { TelegramModule } from "./telegram/telegram.module";
 
 @Module({
   imports: [
