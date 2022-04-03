@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import { Loader } from "@/ui";
 
-import { AuthMenuItem } from "../AuthMenuItem/AuthMenuItem";
+import { AuthMenuBlock } from "../AuthMenuBlock/AuthMenuBlock";
 import { MenuItem } from "../MenuItem/MenuItem";
 
 import { IMenuBlockProps } from "./MenuBlock.type";
@@ -24,7 +24,7 @@ export const MenuBlock: FC<IMenuBlockProps> = (props) => {
         ) : (
           menu.items.map((item) => <MenuItem key={item.link} item={item} />)
         )}
-        {menu.title === "General" && <AuthMenuItem />}
+        {menu.title === "General" && <AuthMenuBlock />}
       </ul>
     </div>
   );
