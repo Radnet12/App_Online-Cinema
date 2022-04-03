@@ -12,7 +12,7 @@ export const Home: FC<IHome> = () => {
     >
       <Heading
         title="Watch movies online"
-        classname="text-gray-300 mb-8 text-xl"
+        className="text-gray-300 mb-8 text-xl"
       >
         Main page
       </Heading>

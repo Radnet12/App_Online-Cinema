@@ -8,4 +8,8 @@ export class MovieService {
       params: searchTerm ? { searchTerm } : {},
     });
   }
+
+  static async getPopularMovies() {
+    return $api.get<IMovie[]>("/movies/popular");
+  }
 }

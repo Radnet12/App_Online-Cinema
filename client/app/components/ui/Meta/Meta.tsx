@@ -5,8 +5,6 @@ import { useRouter } from "next/router";
 
 import { getOnlyText, mergeTitle, siteName } from "@/helpers";
 
-import logoImage from "@/assets/img/ui/logo.svg";
-
 import { IMeta } from "./Meta.interface";
 
 export const Meta: FC<IMeta> = (props) => {
@@ -33,7 +31,7 @@ export const Meta: FC<IMeta> = (props) => {
             <meta property="og:locale" content="en" />
             <meta property="og:title" content={mergeTitle(title)} />
             <meta property="og:url" content={currentUrl} />
-            <meta property="og:image" content={image || logoImage} />
+            <meta property="og:image" content={image} />
             <meta property="og:site_name" content={siteName} />
             <meta
               property="og:description"
