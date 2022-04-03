@@ -30,6 +30,9 @@
       "@/common": ["app/components/common/index"],
       "@/common/*": ["app/components/common/*"],
 
+      "@/forms": ["app/components/forms/index"],
+      "@/forms/*": ["app/components/forms/*"],
+
       "@/ui": ["app/components/ui/index"],
       "@/ui/*": ["app/components/ui/*"],
 
