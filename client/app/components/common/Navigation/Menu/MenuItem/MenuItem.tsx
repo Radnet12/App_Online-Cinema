@@ -9,7 +9,7 @@ import { Icon } from "@/ui";
 
 import { IMenuItem } from "./MenuItem.interface";
 
-import styles from "../MenuBlock/MenuBlock.module.scss";
+import styles from "../Menu.module.scss";
 
 export const MenuItem: FC<{ item: IMenuItem }> = (props) => {
   // **Props

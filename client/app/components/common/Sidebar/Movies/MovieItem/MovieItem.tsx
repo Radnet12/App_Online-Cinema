@@ -7,7 +7,7 @@ import { Icon } from "@/ui";
 
 import { IMovie } from "@/types";
 
-import styles from "../MoviesList/MoviesList.module.scss";
+import styles from "../Movies.module.scss";
 
 export const MovieItem: FC<{ movie: IMovie }> = (props) => {
   // **Props

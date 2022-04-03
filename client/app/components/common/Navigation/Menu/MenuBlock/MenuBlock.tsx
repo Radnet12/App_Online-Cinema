@@ -7,7 +7,7 @@ import { MenuItem } from "../MenuItem/MenuItem";
 
 import { IMenuBlockProps } from "./MenuBlock.type";
 
-import styles from "./MenuBlock.module.scss";
+import styles from "../Menu.module.scss";
 
 export const MenuBlock: FC<IMenuBlockProps> = (props) => {
   // **Props

@@ -6,12 +6,11 @@ import { MovieItem } from "../MovieItem/MovieItem";
 
 import { IMoviesList } from "./MoviesList.interface";
 
-import styles from "./MoviesList.module.scss";
+import styles from "../Movies.module.scss";
 
 export const MoviesList: FC<IMoviesList> = (props) => {
   // **Props
   const { link, title, movies } = props;
-
 
   return (
     <div className={styles.list}>

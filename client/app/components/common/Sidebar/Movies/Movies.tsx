@@ -6,13 +6,13 @@ import styles from "./Movies.module.scss";
 
 export const Movies = () => {
   return (
-    <div>
+    <>
       <MoviesBlock
         title="Popular movies"
         link="/trending"
         query={() => MovieService.getPopularMovies()}
       />
       {/* <MoviesBlock /> */}
-    </div>
+    </>
   );
 };
