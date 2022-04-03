@@ -22,6 +22,8 @@
 
       "@/pages/*": ["app/pages/*"],
 
+      "@/store/*": ["app/store/*"],
+
       "@/layout": ["app/layout/index"],
       "@/layout/*": ["app/layout/*"],
 

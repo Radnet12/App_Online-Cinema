@@ -21,6 +21,8 @@
 
     "^@/components/(.*)$",
 
+    "^@/store/(.*)$",
+
     "^@/services$",
     "^@/services/(.*)$",
 
