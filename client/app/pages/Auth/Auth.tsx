@@ -11,7 +11,7 @@ import { FormButton, Input } from "@/forms";
 
 import { Heading, Meta } from "@/ui";
 
-import { useAuth, useAuthRedirect } from "@/hooks";
+import { useActions, useAuth, useAuthRedirect } from "@/hooks";
 
 import { formRules } from "@/helpers";
 
@@ -27,17 +27,13 @@ export const Auth: FC = () => {
   // **Local state
   const [type, setType] = useState<"login" | "register">("login");
 
+  // **Dispatch
+  const { login, register } = useActions();
+
   // Form
   const methods = useForm<IAuthForm>({
     mode: "onChange",
   });
-
-  const login = (data: IAuthForm) => {
-    console.log("login", data);
-  };
-  const register = (data: IAuthForm) => {
-    console.log("register", data);
-  };
 
   const onSubmit: SubmitHandler<IAuthForm> = (data) => {
     if (type === "login") login(data);
