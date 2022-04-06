@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import cn from "classnames";
+import clsx from "clsx";
 import Skeleton, { SkeletonProps } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
@@ -12,7 +12,7 @@ export const Loader: FC<SkeletonProps> = (props) => {
     <Skeleton
       baseColor="#1f2125"
       highlightColor="#292a2e"
-      className={cn("rounded-lg", className)}
+      className={clsx("rounded-lg", className)}
       {...rest}
     />
   );

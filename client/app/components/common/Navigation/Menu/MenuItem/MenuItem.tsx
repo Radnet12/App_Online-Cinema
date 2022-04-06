@@ -3,7 +3,7 @@ import { FC } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import cn from "classnames";
+import clsx from "clsx";
 
 import { Icon } from "@/ui";
 
@@ -18,7 +18,7 @@ export const MenuItem: FC<{ item: IMenuItem }> = (props) => {
 
   return (
     <li
-      className={cn({
+      className={clsx({
         [styles.active]: asPath === item.link,
       })}
     >

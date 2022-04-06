@@ -1,15 +1,20 @@
 import { IMovie } from "@/types";
 
-import { $api } from "./axios.instance";
+
+
+import { $axios } from "./axios.instance";
+
 
 export class MovieService {
   static async getAllMovies(searchTerm?: string) {
-    return $api.get<IMovie[]>("/movies", {
+    const { data: movies } = await $axios.get<IMovie[]>("/movies", {
       params: searchTerm ? { searchTerm } : {},
     });
+
+    return movies;
   }
 
   static async getPopularMovies() {
-    return $api.get<IMovie[]>("/movies/popular");
+    return $axios.get<IMovie[]>("/movies/popular");
   }
 }

@@ -59,7 +59,8 @@
     "**/*.ts",
     "**/*.tsx",
     "../tailwind.config.js",
-    "pages/_app.js"
-, "app/utils/helpers/.helper.ts"  ],
+    "pages/_app.js",
+    "app/utils/helpers/.helper.ts"
+  ],
   "exclude": ["node_modules"]
 }

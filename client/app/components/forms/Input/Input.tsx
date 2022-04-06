@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import cn from "classnames";
+import clsx from "clsx";
 import { useFormContext } from "react-hook-form";
 
 import { IInput } from "./Input.interface";
@@ -18,7 +18,7 @@ export const Input: FC<IInput> = (props) => {
   } = useFormContext();
 
   return (
-    <div className={cn(styles.common, styles.field)} style={style}>
+    <div className={clsx(styles.common, styles.field)} style={style}>
       <label>
         <span>{label}</span>
         <input {...register(name, rules)} type={type} {...rest} />

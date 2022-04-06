@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import cn from "classnames";
+import clsx from "clsx";
 
 import { IFormButton } from "./FormButton.interface";
 
@@ -11,7 +11,7 @@ export const FormButton: FC<IFormButton> = (props) => {
   const { className, children, ...rest } = props;
 
   return (
-    <button className={cn(styles.button, className)} {...rest}>
+    <button className={clsx(styles.button, className)} {...rest}>
       {children}
     </button>
   );

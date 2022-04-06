@@ -1,5 +1,5 @@
 export * from "./useDebounce";
-export * from "./useSearchTerm";
+export * from "./useSearch";
 export * from "./useAuth";
 export * from "./useActions";
 export * from "./useAuthRedirect";

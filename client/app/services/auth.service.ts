@@ -2,19 +2,19 @@ import Cookies from "js-cookie";
 
 import { IAuthResponse, IUser } from "@/types";
 
-import { $api } from "./axios.instance";
+import { $axios } from "./axios.instance";
 
 export class AuthService {
   static async register(user: Pick<IUser, "email" | "password">) {
-    return $api.post<IAuthResponse>("/auth/register", user);
+    return $axios.post<IAuthResponse>("/auth/register", user);
   }
 
   static async login(user: Pick<IUser, "email" | "password">) {
-    return $api.post<IAuthResponse>("/auth/login", user);
+    return $axios.post<IAuthResponse>("/auth/login", user);
   }
 
   static async getNewTokens() {
-    return $api.post<IAuthResponse>(
+    return $axios.post<IAuthResponse>(
       "/auth/refresh",
       {
         refreshToken: Cookies.get("refreshToken"),

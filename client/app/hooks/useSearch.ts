@@ -4,27 +4,22 @@ import { useQuery } from "react-query";
 
 import { useDebounce } from "./useDebounce";
 
-interface Response<T> {
-  inputHandler: (e: ChangeEvent<HTMLInputElement>) => void;
-  isSuccess: boolean;
-  searchTerm: string;
-  data: T;
+interface useSearchProps<T> {
+  key: string;
+  query: (searchTerm?: string) => Promise<T>;
 }
 type QueryFunctionType = (searchTerm: string) => () => any;
 
-export const useSearchTerm = <T>(
-  key: string,
-  query: QueryFunctionType
-): Response<T> => {
+export const useSearch = <T>({ key, query }: useSearchProps<T>) => {
+  // **Local state
   const [searchTerm, setSearchTerm] = useState("");
 
   const debouncedValue = useDebounce(searchTerm, 500);
 
   const { isSuccess, data } = useQuery(
     [`search-${key}`, debouncedValue],
-    query(debouncedValue),
+    () => query(debouncedValue),
     {
-      select: ({ data }) => data,
       enabled: !!debouncedValue,
     }
   );
